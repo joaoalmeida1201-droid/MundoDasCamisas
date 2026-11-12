@@ -49,12 +49,16 @@
                 </div>
 
                 <div class="col-md-6 mb-3">
-                    <label for="celular">Telefone Celular</label>
-                    <label for="paisCelular"></label><input class="form-control" id="paisCelular" maxlength="4" placeholder="XXX" type="text">
-                    <input class="form-control" id="celular" maxlength="15" minlength="10"
-                           placeholder="XX XXXXX-XXXX" type="text">
-                </div>
+                <label for="paisCelular">DDI</label>
+                <input class="form-control" id="paisCelular" maxlength="4"
+                        placeholder="+55" type="tel" inputmode="numeric">
 
+                <label for="celular">Telefone Celular</label>
+                <input class="form-control" id="celular" maxlength="15"
+                       placeholder="(XX) XXXXX-XXXX" type="tel" inputmode="numeric">
+               
+                </div>
+                 
                 <div class="col-md-6 mb-3">
                     <label for="login">Nome de usuário</label>
                     <input class="form-control" id="login" maxlength="6" minlength="6" placeholder="Exatamente 6 letras"
