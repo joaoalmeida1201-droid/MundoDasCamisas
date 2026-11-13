@@ -36,17 +36,29 @@ function mostrarMensagem(mensagem, tipo = 'bg-danger') {
 const celInput = document.getElementById('celular');
 if (celInput) {
     celInput.addEventListener('input', function (e) {
-        let value = e.target.value.replace(/\D/g, ""); // Tira tudo que não é número
+        let v = e.target.value.replace(/\D/g, "").slice(0, 11);
 
-        // Formata para (+55)XX-XXXXXXXXX
-        if (value.length > 2 && value.length <= 4) {
-            value = "(+55)" + value.substring(0);
-        } else if (value.length > 4) {
-            value = "(+55)" + value.substring(2, 4) + "-" + value.substring(4, 13);
+        if (v.length > 10) {
+            v = `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
+        } else if (v.length > 6) {
+            v = `(${v.slice(0, 2)}) ${v.slice(2, 6)}-${v.slice(6)}`;
+        } else if (v.length > 2) {
+            v = `(${v.slice(0, 2)}) ${v.slice(2)}`;
+        } else if (v.length > 0) {
+            v = `(${v}`;
         }
-        e.target.value = value;
+
+        e.target.value = v;
     });
 }
+const paisInput = document.get.ElementById('paiscelular');
+if (paisInput) {
+    paisInput.addEventListener('input', function (e) {
+        const d = e.target.value.replace(/\D/g, "").slice(0,3);
+        e.target.value = d ? "+" + d : "";
+    });
+}
+
 const nomeInput = document.getElementById('nome');
 if (nomeInput) {
     nomeInput.addEventListener('input', function (e) {
